@@ -1,0 +1,44 @@
+{
+  "fps": 30,
+  "fps_base": 1,
+  "resolution": [
+    960,
+    680
+  ],
+  "views": [
+    "front",
+    "45 degrees"
+  ],
+  "blender": "5.2.1 LTS",
+  "engine": "EEVEE",
+  "samples": 24,
+  "color_management": "Standard / None / exposure 0 / gamma 1",
+  "device": "not recorded",
+  "render_seconds": "not recorded",
+  "videos": [
+    {
+      "file": "Idle_Doctor_3loops.mp4",
+      "action_frames": 240,
+      "loops": 3,
+      "duration_seconds": 24.0,
+      "decoded": true,
+      "closing_key_rendered": false
+    },
+    {
+      "file": "Explain_Gentle_3loops.mp4",
+      "action_frames": 300,
+      "loops": 3,
+      "duration_seconds": 30.0,
+      "decoded": true,
+      "closing_key_rendered": false
+    },
+    {
+      "file": "Transition_10f_preview.mp4",
+      "action_frames": 400,
+      "loops": 1,
+      "duration_seconds": 13.333333333333334,
+      "decoded": true,
+      "closing_key_rendered": false
+    }
+  ]
+}

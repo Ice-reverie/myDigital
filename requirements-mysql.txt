@@ -1,0 +1,2 @@
+# Optional connector for DIGITALHELPER_DB_BACKEND=mysql.
+mysql-connector-python

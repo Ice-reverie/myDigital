@@ -1,0 +1,663 @@
+{
+  "revision": 2,
+  "scope": "Refine only Idle_Doctor and Explain_Gentle on the existing schoolBoy rig; leave production runtime unchanged.",
+  "before": {
+    "archive": "previous_v1",
+    "evidence": "joint_audit"
+  },
+  "after": {
+    "blend": "Anxin_Health_Actions.blend",
+    "evidence": "joint_audit_v2",
+    "comparison": "joint_compare.html"
+  },
+  "changes": [
+    "Reduce folded-hand wrist bend through arm targets and smooth wrist correction.",
+    "Distribute palm-turn rotation across the upper arm and forearm, preserving original mesh, weights and skeleton.",
+    "Use a diagonal upward palm and slower turn/return with adjusted hand clearance."
+  ],
+  "retained": [
+    "Model appearance and materials",
+    "Original rig and T-Pose",
+    "30 fps / Base 1",
+    "8-second and 10-second clips with shared closed endpoint pose",
+    "Fixed root, hips, feet and toes",
+    "Blink and gentle smile; no lip-sync mouth animation",
+    "Runtime animation lists and switching code untouched"
+  ],
+  "comparison_metrics": {
+    "Idle_Doctor": {
+      "before_ranges": {
+        "L": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              66.09494829626966,
+              1
+            ],
+            "max": [
+              66.15846905555078,
+              181
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              -17.940214878891616,
+              1
+            ],
+            "max": [
+              -17.750754499715796,
+              181
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              11.499979260266715,
+              60
+            ],
+            "max": [
+              11.50001682630715,
+              54
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              54.571753223014085,
+              61
+            ],
+            "max": [
+              54.67210236229991,
+              241
+            ]
+          }
+        },
+        "R": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              67.97799729949634,
+              1
+            ],
+            "max": [
+              68.02093869880821,
+              181
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              16.04708247274328,
+              61
+            ],
+            "max": [
+              16.213625001371472,
+              241
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              -6.400011049480654,
+              16
+            ],
+            "max": [
+              -6.399973483440219,
+              181
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              51.052317253152005,
+              61
+            ],
+            "max": [
+              51.15049097718718,
+              241
+            ]
+          }
+        }
+      },
+      "after_ranges": {
+        "L": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              22.850411528656,
+              1
+            ],
+            "max": [
+              22.98489795341355,
+              181
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              -3.1470996380782617,
+              1
+            ],
+            "max": [
+              -3.118748352208692,
+              181
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              -17.617801897961936,
+              1
+            ],
+            "max": [
+              -17.4586670280371,
+              181
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              64.29871782758303,
+              61
+            ],
+            "max": [
+              64.38982572092183,
+              241
+            ]
+          }
+        },
+        "R": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              27.305281178939047,
+              1
+            ],
+            "max": [
+              27.369934042075094,
+              181
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              3.208777740487558,
+              61
+            ],
+            "max": [
+              3.2319403553312527,
+              241
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              15.73496975324142,
+              61
+            ],
+            "max": [
+              15.849290044474508,
+              241
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              64.3616375302172,
+              61
+            ],
+            "max": [
+              64.44593572495349,
+              241
+            ]
+          }
+        }
+      },
+      "before_largest_frame_steps": {
+        "J_Bip_L_UpperArm": {
+          "frame": 31,
+          "degrees": 0.02261338238774026
+        },
+        "J_Bip_L_LowerArm": {
+          "frame": 91,
+          "degrees": 0.02016160207784691
+        },
+        "J_Bip_L_Hand": {
+          "frame": 31,
+          "degrees": 0.02171244711079153
+        },
+        "J_Bip_L_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_L_LowerLeg": {
+          "frame": 2,
+          "degrees": 2.452278098427739e-06
+        },
+        "J_Bip_L_Foot": {
+          "frame": 2,
+          "degrees": 2.134434116622908e-07
+        },
+        "J_Bip_R_UpperArm": {
+          "frame": 93,
+          "degrees": 0.022397314800316766
+        },
+        "J_Bip_R_LowerArm": {
+          "frame": 33,
+          "degrees": 0.02000526038463658
+        },
+        "J_Bip_R_Hand": {
+          "frame": 33,
+          "degrees": 0.021707481653003374
+        },
+        "J_Bip_R_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_LowerLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_Foot": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_C_Head": {
+          "frame": 3,
+          "degrees": 0.014405828694972646
+        },
+        "J_Bip_C_Neck": {
+          "frame": 90,
+          "degrees": 0.01387211581802159
+        }
+      },
+      "after_largest_frame_steps": {
+        "J_Bip_L_UpperArm": {
+          "frame": 31,
+          "degrees": 0.02145054213460146
+        },
+        "J_Bip_L_LowerArm": {
+          "frame": 32,
+          "degrees": 0.02215491752224845
+        },
+        "J_Bip_L_Hand": {
+          "frame": 93,
+          "degrees": 0.02170613298563377
+        },
+        "J_Bip_L_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_L_LowerLeg": {
+          "frame": 2,
+          "degrees": 2.452278098427739e-06
+        },
+        "J_Bip_L_Foot": {
+          "frame": 2,
+          "degrees": 2.134434116622908e-07
+        },
+        "J_Bip_R_UpperArm": {
+          "frame": 30,
+          "degrees": 0.021335700952520378
+        },
+        "J_Bip_R_LowerArm": {
+          "frame": 91,
+          "degrees": 0.021625095829697967
+        },
+        "J_Bip_R_Hand": {
+          "frame": 91,
+          "degrees": 0.021982110447023803
+        },
+        "J_Bip_R_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_LowerLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_Foot": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_C_Head": {
+          "frame": 3,
+          "degrees": 0.014405828694972646
+        },
+        "J_Bip_C_Neck": {
+          "frame": 90,
+          "degrees": 0.01387211581802159
+        }
+      }
+    },
+    "Explain_Gentle": {
+      "before_ranges": {
+        "L": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              66.01129213931536,
+              151
+            ],
+            "max": [
+              66.12416784553898,
+              41
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              -18.11560469677591,
+              151
+            ],
+            "max": [
+              -17.847003685689007,
+              43
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              11.499976698945774,
+              253
+            ],
+            "max": [
+              11.500031340459135,
+              262
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              54.571749807919495,
+              226
+            ],
+            "max": [
+              54.67215700381327,
+              151
+            ]
+          }
+        },
+        "R": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              24.788402573566245,
+              87
+            ],
+            "max": [
+              71.4364157744081,
+              48
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              15.71842834194335,
+              133
+            ],
+            "max": [
+              34.30517342713875,
+              62
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              -6.400768773591702,
+              33
+            ],
+            "max": [
+              146.81426051126377,
+              95
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              27.411109837486517,
+              210
+            ],
+            "max": [
+              72.66311774934239,
+              69
+            ]
+          }
+        }
+      },
+      "after_ranges": {
+        "L": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              22.697811442219574,
+              151
+            ],
+            "max": [
+              22.91373591999848,
+              42
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              -3.1803765029276936,
+              151
+            ],
+            "max": [
+              -3.1338333447758675,
+              41
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              -17.804199467958878,
+              151
+            ],
+            "max": [
+              -17.543342590725043,
+              42
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              64.29870416720469,
+              226
+            ],
+            "max": [
+              64.38982572092183,
+              301
+            ]
+          }
+        },
+        "R": {
+          "wrist_axis_bend_deg": {
+            "min": [
+              12.471741009335693,
+              90
+            ],
+            "max": [
+              29.817962633066877,
+              253
+            ]
+          },
+          "wrist_residual_twist_deg": {
+            "min": [
+              3.2243906988625253,
+              30
+            ],
+            "max": [
+              14.509445981885557,
+              210
+            ]
+          },
+          "forearm_local_roll_deg": {
+            "min": [
+              15.811855485180962,
+              30
+            ],
+            "max": [
+              70.85445633636634,
+              210
+            ]
+          },
+          "elbow_flex_deg": {
+            "min": [
+              59.27625433463005,
+              114
+            ],
+            "max": [
+              84.90831504428711,
+              71
+            ]
+          }
+        }
+      },
+      "before_largest_frame_steps": {
+        "J_Bip_L_UpperArm": {
+          "frame": 249,
+          "degrees": 0.03798581581880383
+        },
+        "J_Bip_L_LowerArm": {
+          "frame": 249,
+          "degrees": 0.03954947808011195
+        },
+        "J_Bip_L_Hand": {
+          "frame": 249,
+          "degrees": 0.03876283746817179
+        },
+        "J_Bip_L_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_L_LowerLeg": {
+          "frame": 2,
+          "degrees": 2.452278098427739e-06
+        },
+        "J_Bip_L_Foot": {
+          "frame": 2,
+          "degrees": 2.134434116622908e-07
+        },
+        "J_Bip_R_UpperArm": {
+          "frame": 237,
+          "degrees": 1.2431946253589088
+        },
+        "J_Bip_R_LowerArm": {
+          "frame": 246,
+          "degrees": 4.157986369299883
+        },
+        "J_Bip_R_Hand": {
+          "frame": 249,
+          "degrees": 3.5811199577503827
+        },
+        "J_Bip_R_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_LowerLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_Foot": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_C_Head": {
+          "frame": 93,
+          "degrees": 0.3835032692763789
+        },
+        "J_Bip_C_Neck": {
+          "frame": 93,
+          "degrees": 0.10218306909011787
+        }
+      },
+      "after_largest_frame_steps": {
+        "J_Bip_L_UpperArm": {
+          "frame": 249,
+          "degrees": 0.03699397750714505
+        },
+        "J_Bip_L_LowerArm": {
+          "frame": 249,
+          "degrees": 0.04092383647866268
+        },
+        "J_Bip_L_Hand": {
+          "frame": 249,
+          "degrees": 0.038774216335506935
+        },
+        "J_Bip_L_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_L_LowerLeg": {
+          "frame": 2,
+          "degrees": 2.452278098427739e-06
+        },
+        "J_Bip_L_Foot": {
+          "frame": 2,
+          "degrees": 2.134434116622908e-07
+        },
+        "J_Bip_R_UpperArm": {
+          "frame": 240,
+          "degrees": 1.7936248661447334
+        },
+        "J_Bip_R_LowerArm": {
+          "frame": 243,
+          "degrees": 2.182094872904222
+        },
+        "J_Bip_R_Hand": {
+          "frame": 243,
+          "degrees": 2.2902350701735013
+        },
+        "J_Bip_R_UpperLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_LowerLeg": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_R_Foot": {
+          "frame": 2,
+          "degrees": 0.0
+        },
+        "J_Bip_C_Head": {
+          "frame": 93,
+          "degrees": 0.3835032692763789
+        },
+        "J_Bip_C_Neck": {
+          "frame": 93,
+          "degrees": 0.10218306909011787
+        }
+      }
+    }
+  },
+  "checks": {
+    "body_and_surface": "validation.json",
+    "vrma_reimport": "vrma_roundtrip.json",
+    "joint_angles": "joint_audit_v2/measurements.json",
+    "preview_playback": {
+      "browser": "Codex in-app browser",
+      "page": "review.html",
+      "revision": 2,
+      "videos": [
+        {
+          "name": "Idle_Doctor",
+          "duration_seconds": 24,
+          "cycles": 3,
+          "ended": true
+        },
+        {
+          "name": "Explain_Gentle",
+          "duration_seconds": 30,
+          "cycles": 3,
+          "ended": true
+        },
+        {
+          "name": "Transition_10f",
+          "duration_seconds": 13.333333,
+          "ended": true
+        }
+      ],
+      "observed": "Front and 45-degree views; all three videos reached their end without a reported media error."
+    },
+    "render_manifest": "render-manifest.json"
+  },
+  "visual_review": {
+    "observed_frames": {
+      "Idle_Doctor": [
+        1
+      ],
+      "Explain_Gentle": [
+        62,
+        108,
+        210,
+        243
+      ]
+    },
+    "views": [
+      "front",
+      "front 45 degrees",
+      "back arm close-up",
+      "top and side wrist close-up"
+    ],
+    "finding": "No prior sleeve collapse/skin exposure or sharp folded-wrist kink was visible in inspected V2 views. Finite-view inspection, not a guarantee for every viewpoint."
+  },
+  "decision": "retain_repair",
+  "integration": "V2 integrated following user approval. See runtime-integration.json.",
+  "cleanup": "Removed generated PNG render sequence, process logs, candidate image and stale/duplicate overview images; retained V1 archive and joint audit evidence."
+}

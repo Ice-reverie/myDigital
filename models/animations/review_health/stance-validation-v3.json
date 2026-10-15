@@ -1,0 +1,19 @@
+{
+  "blender": "5.2.1 LTS",
+  "actions": {
+    "Idle_Doctor": {
+      "max_axial_twist_degrees": 3.8078764395455506e-05,
+      "max_foot_drift_m": 0,
+      "min_knee_forward_m": 0.04025415889918804,
+      "max_knee_sideways_m": 0.00037250667810440063,
+      "passed": true
+    },
+    "Explain_Gentle": {
+      "max_axial_twist_degrees": 3.8078764395455506e-05,
+      "max_foot_drift_m": 0,
+      "min_knee_forward_m": 0.04025415889918804,
+      "max_knee_sideways_m": 0.00037250667810440063,
+      "passed": true
+    }
+  }
+}

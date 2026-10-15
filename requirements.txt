@@ -1,0 +1,18 @@
+kaldi_native_fbank
+tqdm
+scikit-learn
+pyglm
+glfw
+PyOpenGL
+gradio
+sherpa-onnx
+
+# VRM Web demo
+fastapi
+uvicorn
+pydantic
+edge-tts>=7.2.8,<8
+av
+pypinyin
+httpx>=0.27,<1
+python-dotenv>=1,<2

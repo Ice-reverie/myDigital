@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "build:vrm": "esbuild vrm_demo/vendor/vrm-dependencies.entry.js --bundle --format=esm --platform=browser --target=es2022 --minify --outfile=vrm_demo/static/js/vrm-dependencies.js",
+    "test:browser": "node --test tests/test_browser_smoke.cjs"
+  },
+  "dependencies": {
+    "@pixiv/three-vrm": "3.5.5",
+    "@pixiv/three-vrm-animation": "3.5.5",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "playwright-core": "1.55.1"
+  }
+}

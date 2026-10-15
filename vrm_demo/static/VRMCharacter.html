@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-scene="outpatient">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fafbf8" />
+  <title>安心健康助手 · 慢慢说，我在听</title>
+  <link rel="stylesheet" href="./css/companion.css?v=hospital-3d-3" />
+</head>
+<body>
+  <a class="skip-link" href="#voice-btn">跳到对话操作</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./VRMCharacter.html" aria-label="安心健康助手首页"><span class="brand-word">安心 <span class="brand-en">ANXIN</span></span><span class="brand-description">一直在您身边</span></a>
+      <div class="header-actions">
+        <button id="motion-btn" class="utility-button" type="button" aria-pressed="false">减少动态</button>
+        <button id="font-size-btn" class="utility-button" type="button" aria-pressed="false">放大文字</button>
+        <button id="history-btn" class="utility-button" type="button">对话记录</button>
+      </div>
+    </header>
+    <main class="immersive-stage" aria-label="数字人对话舞台">
+      <div class="hospital-scenery" aria-hidden="true">
+        <div id="hospital-room" class="hospital-room"><img class="scene-image is-visible" src="./assets/scenes/outpatient.png" alt="" fetchpriority="high" draggable="false" /></div>
+      </div>
+      <div class="stage-intro"><p>有我陪着，慢慢来。</p><h1>今天，也要好好照顾自己。</h1><span id="system-state-text" role="status">正在连接</span></div>
+      <section class="avatar-panel" aria-labelledby="avatar-title">
+        <h2 id="avatar-title" class="visually-hidden">您的数字人伙伴小安</h2>
+        <div id="stage" role="img" aria-label="3D 数字人展示区域"></div>
+        <div id="avatar-placeholder" class="avatar-copy"><p>小安正在准备中</p><p>您也可以先说话或打字。</p></div>
+      </section>
+      <div id="messages" class="conversation-overlay" role="log" aria-label="最近的对话气泡" aria-live="polite" aria-relevant="additions"></div>
+      <div class="avatar-actions">
+        <button id="reset-view-btn" type="button" class="utility-button" hidden>恢复全身</button>
+      </div>
+      <section class="interaction-dock" aria-label="和小安对话">
+        <h2 class="dock-title">和小安对话</h2>
+        <div id="interaction-status" role="status" aria-live="polite">我在这里，您可以随时和我说话。</div>
+        <div id="quick-replies" aria-label="按提示选择下一步"></div>
+        <div class="composer">
+          <div class="voice-control"><button id="voice-btn" type="button" aria-pressed="false" aria-describedby="voice-hint">开始说话</button><p id="voice-hint">点一下就能说，不用一直按住。</p></div>
+          <div class="input-row"><label for="text-input" class="visually-hidden">也可以打字告诉我</label><input id="text-input" type="text" maxlength="500" autocomplete="off" placeholder="也可以打字告诉我…" /><button id="send-btn" type="button">发送</button></div>
+        </div>
+        <nav class="service-grid" aria-label="常用健康服务"><button type="button" data-service="健康查询">问问健康</button><button type="button" data-service="查看健康预警">查看提醒</button><button type="button" data-service="预约门诊">预约服务</button><button id="help-btn" type="button">帮助与设置</button></nav>
+      </section>
+    </main>
+  </div>
+  <dialog id="history-dialog" class="utility-dialog" aria-labelledby="history-title"><header><h2 id="history-title">对话记录</h2><button id="close-history-btn" class="utility-button" autofocus>返回对话</button></header><div id="history-messages"></div><p class="dialog-note">提醒与预约为本地演示，不会真实挂号。健康建议不能替代医生诊断。</p></dialog>
+  <dialog id="help-dialog" class="utility-dialog" aria-labelledby="help-title"><header><h2 id="help-title">帮助与设置</h2><button id="close-help-btn" class="utility-button" autofocus>返回对话</button></header><p>点一下「开始说话」，允许麦克风后正常说话即可。也可以直接选择健康服务，按提示一步步完成。</p><p>查看人物：鼠标左键拖动可旋转，按住 Shift + 左键拖动可平移，滚轮可缩放。点击「恢复全身」回到默认视角。3D医院场景仅支持小幅旋转与缩放，不支持平移。</p><p>想安静一点，可以点击「减少动态」；看不清文字，可以点击「放大文字」。</p><p>本系统的提醒和预约均为演示，不会真实挂号。健康建议不能替代医生诊断。</p><details><summary>演示人员设置</summary>
+    <fieldset class="scene-picker">
+      <legend>场景与氛围</legend>
+      <div id="scene-options" class="scene-options" aria-busy="false">
+        <button type="button" class="scene-choice scene-choice-3d" data-scene-choice="outpatient3d" aria-pressed="false"><img src="./assets/scenes/outpatient.png" alt="" loading="lazy" /><strong>门诊大厅</strong><small>蓝白 · 明亮通透</small><span class="scene-badge">3D</span></button>
+        <button type="button" class="scene-choice scene-choice-3d" data-scene-choice="waiting3d" aria-pressed="false"><img src="./assets/scenes/waiting.png" alt="" loading="lazy" /><strong>温馨候诊区</strong><small>浅绿 · 木色暖光</small><span class="scene-badge">3D</span></button>
+        <button type="button" class="scene-choice scene-choice-3d" data-scene-choice="guidance3d" aria-pressed="false"><img src="./assets/scenes/guidance.png" alt="" loading="lazy" /><strong>智慧导诊</strong><small>青白 · 玻璃与光影</small><span class="scene-badge">3D</span></button>
+      </div>
+      <p id="scene-status" role="status">当前场景：门诊大厅。选择会在本浏览器保留。</p>
+      <p><button id="scene-compare-btn" type="button" class="utility-button" hidden>查看原图场景</button></p>
+      <p class="scene-motion-note">三个场景均为实时3D空间，可小幅拖动视角。上方按钮可在原图与3D场景之间切换。点击顶部「减少动态」可暂停环境动效。</p>
+    </fieldset>
+<div class="avatar-picker"><label for="avatar-select">选择数字人形象</label><select id="avatar-select" disabled><option value="schoolBoy">校服男生（默认）</option></select><button id="switch-avatar-btn" class="utility-button" disabled>切换形象</button><button id="set-default-avatar-btn" class="utility-button" disabled>设为默认</button><button id="reset-default-avatar-btn" class="utility-button">恢复系统默认</button><p id="default-avatar-status" role="status">本浏览器默认形象：校服男生（系统默认）。</p><p id="avatar-catalog-status" role="status">正在读取人物列表…</p></div><div class="avatar-picker"><label for="avatar-voice-select">当前人物声音</label><select id="avatar-voice-select"><option value="auto">跟随人物</option><option value="male">男声</option><option value="female">女声</option></select><button id="preview-voice-btn" class="utility-button">试听</button><p id="avatar-voice-status" role="status">声音设置按人物保存在本浏览器。</p></div><strong id="model-status-title">正在加载默认形象</strong><p id="model-status-detail">数字人将显示在舞台中央。</p><div class="settings-buttons"><button id="load-btn" class="utility-button">载入数字人（.vrm）</button><button id="anim-btn" class="utility-button">载入动作（.vrma）</button></div><input type="file" id="vrm-file" accept=".vrm" /><input type="file" id="vrm-anim-file" accept=".vrma" /></details></dialog>
+  <script type="module" src="./js/VRMCharacter.js?v=forward-knees-v4"></script>
+</body>
+</html>

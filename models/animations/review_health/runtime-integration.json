@@ -1,0 +1,105 @@
+{
+  "revision": 4,
+  "source_animation_revision": 3,
+  "status": "integrated",
+  "default_avatar": "schoolBoy",
+  "actions": [
+    {
+      "action": "Idle_Doctor",
+      "runtime": "../Idle_Doctor.vrma",
+      "endpoint": "/api/animations/idle",
+      "duration_seconds": 8,
+      "sha256": "369bc0e46739d552adf1090b671e83943a9a88f0132b1aa2dcedf987553d7403"
+    },
+    {
+      "action": "Explain_Gentle",
+      "runtime": "../explain_1.vrma",
+      "endpoint": "/api/animations/explain/explain_1",
+      "duration_seconds": 10,
+      "sha256": "a66d1cc0d380cfdacc2f1432f976f21d03c021056fade7444574fdc4b2eccc20"
+    }
+  ],
+  "transition_frames": 10,
+  "fps": 30,
+  "adaptation": [
+    "VRM humanoid retargeting and library VRM0 axis conversion",
+    "Authored wrist/finger tracks replace procedural hand offsets",
+    "Authored eyes/blinks suppress competing idle face writers",
+    "Speech owns vowel shapes and jaw; expressions blend back to idle",
+    "Elapsed animation time separated from bounded physics timestep",
+    "Reduced motion uses common starting pose with automatic blinking",
+    "New idle failure falls back to the legacy JSON idle",
+    "Source leg IK uses shortest swings and preserves rest roll",
+    "Runtime idle/explanation stance is solved from each target rig: ankles below hips, sagittal forward knee bend of ten degrees, original foot/toe heights and foot orientations",
+    "Reply gestures start on real audio start and advance on cumulative speech time",
+    "Buffering eases into idle; long explanations loop; completion and interruption release the gesture in ten frames"
+  ],
+  "archive": "../legacy/; previous explanation variants excluded from catalog",
+  "validation": {
+    "date": "2026-10-12",
+    "blender": {
+      "method": "Independent Blender 5.2.1 LTS CLI with the existing VRM addon",
+      "stance_report": "stance-validation-v3.json",
+      "roundtrip_report": "vrma_roundtrip.json",
+      "visual_views": ["source legs front", "source legs 45 degrees"]
+    },
+    "python": {
+      "command": "python -m unittest discover -s tests -p test_*.py",
+      "passed": 78
+    },
+    "javascript": {
+      "command": "node --test tests/test_avatar_stance.cjs tests/test_vrm_frontend.cjs tests/test_avatar_surface.cjs tests/test_hospital_scenes.cjs tests/test_hospital_rooms.cjs",
+      "total": 120,
+      "passed": 119,
+      "skipped": 1,
+      "skip_reason": "Optional AstraYao model is absent from current catalog; synthetic material tests still pass"
+    },
+    "browser": {
+      "command": "npm run test:browser",
+      "passed": true,
+      "avatars": [
+        "schoolBoy",
+        "doctorBoy",
+        "schoolGirl",
+        "studentGirl"
+      ],
+      "checks": [
+        "authored idle loaded",
+        "normalized leg twist below five degrees on all four avatars",
+        "actual skinned joint positions: hip/knee/ankle lateral alignment within 0.2 mm during idle and explanation",
+        "forward knee bend and planted feet through the idle/explanation transition",
+        "body and Web Audio clocks within 150 ms at sampled checks",
+        "12.2 second reply continues beyond the 10 second clip",
+        "a new reply cancels the previous gesture and returns to idle",
+        "greeting still works",
+        "missing 3D bundle retains conversation"
+      ],
+      "audio": "Synthetic WAV through real browser Web Audio; browser speech fallback separately unit-tested"
+    },
+    "in_app_browser": {
+      "url": "http://127.0.0.1:8890/static/VRMCharacter.html",
+      "observed": [
+        "studentGirl V4 stance front, front-side and near-side views",
+        "schoolBoy V4 front view",
+        "hospital 3D scene restored with studentGirl selected"
+      ],
+      "errors": "No application errors; existing three-vrm deprecation/proxy warnings remain"
+    },
+    "runtime_stance": {
+      "module": "../../../vrm_demo/static/js/avatar-stance.js",
+      "test": "../../../tests/test_avatar_stance.cjs",
+      "avatars": ["schoolBoy", "doctorBoy", "schoolGirl", "studentGirl"],
+      "scope": ["Idle_Doctor", "Explain_Gentle"],
+      "checks": ["actual target rig proportions", "sagittal knee plane", "ten degree knee flexion", "fixed ankle and toe floor heights", "fixed foot orientation", "shared stance across actions and three loop samples", "upper-body tracks preserved"],
+      "source_assets": "Blender project and VRMA exports remain V3; V4 is a runtime retargeting correction"
+    },
+    "limits": "Synchronization covers audible start, cumulative playback, buffering and end; it is not word-level semantic choreography. Visual checks are sampled, not exhaustive continuous cloth collision checks. Folder MP4/poster previews remain V2 historical evidence. V3 Blender and Python asset checks were previously completed; V4 changes runtime retargeting only. Other scene actions and uploaded motions keep their authored lower-body movement."
+  },
+  "preserved": [
+    "Original model files",
+    "V2 upper-body gestures and hand paths; historical V1/V2 evidence",
+    "Existing greet/alert/booking/confirm/thanks/wink actions",
+    "User blockout Blender file",
+    "docs directory"
+  ]
+}

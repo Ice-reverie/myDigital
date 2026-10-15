@@ -1,0 +1,7 @@
+# Current FastAPI / VRM web application. Legacy video tooling uses requirements.txt.
+fastapi
+uvicorn
+pydantic
+edge-tts>=7.2.8,<8
+httpx>=0.27,<1
+python-dotenv>=1,<2

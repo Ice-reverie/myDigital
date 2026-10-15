@@ -1,0 +1,14 @@
+{
+  "fps": 24,
+  "duration": 3,
+  "start_frame": 0,
+  "end_frame": 72,
+  "authored_poses": 145,
+  "feet_mm": 0.015214822592056471,
+  "head_hold_degrees": 0,
+  "endpoint": 1.4901161193847656e-08,
+  "min_elbow": 11.284459471196131,
+  "min_wrist": 3.2270712165435604,
+  "max_quarter_frame_degrees": 5.142470343556933,
+  "bezier": true
+}

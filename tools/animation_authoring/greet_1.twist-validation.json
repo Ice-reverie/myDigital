@@ -1,0 +1,12 @@
+{
+  "before_wrist_twist": 98.42016685249499,
+  "distal_sleeve_to_palm_twist": 9.842016685249499,
+  "max_wrist_swing": 36.85128845918498,
+  "max_forearm_roll": 98.42016685249499,
+  "max_hand_position_error_mm": 0.000182653228523303,
+  "feet_mm": 0.015214822592056471,
+  "endpoint_error": 2.980232238769531e-07,
+  "distal_twist_measured": 9.841439713075845,
+  "max_quarter_frame_degrees": 5.1411000368546995,
+  "bezier": true
+}

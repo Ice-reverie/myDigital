@@ -1,0 +1,168 @@
+{
+  "Idle_Doctor_F1": {
+    "edge_count": 285,
+    "minimum_edge_ratio": 0.22875233024395922,
+    "maximum_edge_ratio": 1.5560969677751004,
+    "edges_compressed_below_half": 3,
+    "smallest_edges": [
+      [
+        0.22875233024395922,
+        6365,
+        6367
+      ],
+      [
+        0.23283510151148834,
+        6368,
+        6369
+      ],
+      [
+        0.48965553524559485,
+        6371,
+        6630
+      ],
+      [
+        0.5036098163799312,
+        6362,
+        6366
+      ],
+      [
+        0.542015891266298,
+        6369,
+        6371
+      ]
+    ]
+  },
+  "Explain_Gentle_F62": {
+    "edge_count": 285,
+    "minimum_edge_ratio": 0.3111309417274769,
+    "maximum_edge_ratio": 1.9860090947034341,
+    "edges_compressed_below_half": 3,
+    "smallest_edges": [
+      [
+        0.3111309417274769,
+        6375,
+        6381
+      ],
+      [
+        0.3449539982136745,
+        6371,
+        6380
+      ],
+      [
+        0.4262590978273902,
+        6373,
+        6379
+      ],
+      [
+        0.5847475790443687,
+        6380,
+        6633
+      ],
+      [
+        0.6021603514107887,
+        6348,
+        6349
+      ]
+    ]
+  },
+  "Explain_Gentle_F108": {
+    "edge_count": 285,
+    "minimum_edge_ratio": 0.255508454821715,
+    "maximum_edge_ratio": 2.1428822369683,
+    "edges_compressed_below_half": 3,
+    "smallest_edges": [
+      [
+        0.255508454821715,
+        6350,
+        6352
+      ],
+      [
+        0.2736845068323384,
+        6347,
+        6350
+      ],
+      [
+        0.44052421795929214,
+        6352,
+        6354
+      ],
+      [
+        0.5128358504253928,
+        6348,
+        6349
+      ],
+      [
+        0.5236042224999439,
+        6380,
+        6630
+      ]
+    ]
+  },
+  "Explain_Gentle_F210": {
+    "edge_count": 285,
+    "minimum_edge_ratio": 0.22903632904789392,
+    "maximum_edge_ratio": 2.1645160526375267,
+    "edges_compressed_below_half": 4,
+    "smallest_edges": [
+      [
+        0.22903632904789392,
+        6350,
+        6352
+      ],
+      [
+        0.2673059385432011,
+        6347,
+        6350
+      ],
+      [
+        0.381300604688941,
+        6352,
+        6354
+      ],
+      [
+        0.4781474986252844,
+        6380,
+        6630
+      ],
+      [
+        0.5249771097224888,
+        6348,
+        6349
+      ]
+    ]
+  },
+  "diagnostic_only_F108_reduce_forearm_roll_to_20deg": {
+    "edge_count": 285,
+    "minimum_edge_ratio": 0.5661261430438411,
+    "maximum_edge_ratio": 1.4935101263390793,
+    "edges_compressed_below_half": 0,
+    "smallest_edges": [
+      [
+        0.5661261430438411,
+        6371,
+        6380
+      ],
+      [
+        0.5956946964660588,
+        6368,
+        6369
+      ],
+      [
+        0.6089630044462736,
+        6365,
+        6367
+      ],
+      [
+        0.6296151277615665,
+        6373,
+        6379
+      ],
+      [
+        0.6305430600594063,
+        6371,
+        6630
+      ]
+    ]
+  },
+  "method": "Original mesh topology, world-space coordinates including source Body 180-degree Z transform. Edges longer than 3 mm within 100 mm of right elbow; outline nodes temporarily excluded. Temporary roll experiment restored without saving."
+}

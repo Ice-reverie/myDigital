@@ -1,0 +1,931 @@
+{
+  "blender": "5.2.1 LTS",
+  "fps": 30,
+  "fps_base": 1.0,
+  "actions": {
+    "Idle_Doctor": {
+      "duration_seconds": 8.0,
+      "playback_frames": [
+        1,
+        240
+      ],
+      "closure_frame": 241,
+      "fixed_bones_max_translation_mm": 0,
+      "fixed_bones_max_matrix_error": 0,
+      "max_half_frame_rotation_degrees": 0.09691328528660301,
+      "endpoint_pose_error": 0.0,
+      "curve_endpoint_error": 0,
+      "curve_seam_derivative_error": 0,
+      "surfaces": {
+        "1": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030126474797726
+        },
+        "7": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030035205185413
+        },
+        "13": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030434276908636
+        },
+        "19": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.031467579305172
+        },
+        "25": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032098084688187
+        },
+        "31": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032878533005714
+        },
+        "37": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.034069694578648
+        },
+        "43": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.0349623672664165
+        },
+        "49": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.035446655005217
+        },
+        "50": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.0355085879564285
+        },
+        "55": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.036045029759407
+        },
+        "61": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.036031991243362
+        },
+        "67": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.036045029759407
+        },
+        "73": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.035446655005217
+        },
+        "79": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.0349623672664165
+        },
+        "85": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.034069694578648
+        },
+        "91": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032878533005714
+        },
+        "97": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032098084688187
+        },
+        "103": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.031467579305172
+        },
+        "109": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030434276908636
+        },
+        "115": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030035205185413
+        },
+        "121": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030126474797726
+        },
+        "127": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030035205185413
+        },
+        "133": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030434276908636
+        },
+        "139": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.031467579305172
+        },
+        "145": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032098084688187
+        },
+        "151": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032878533005714
+        },
+        "157": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.034069694578648
+        },
+        "160": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.034530233591795
+        },
+        "163": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.0349623672664165
+        },
+        "169": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.035446655005217
+        },
+        "175": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.036045029759407
+        },
+        "181": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.036031991243362
+        },
+        "187": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.036045029759407
+        },
+        "193": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.035446655005217
+        },
+        "199": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.0349623672664165
+        },
+        "205": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.034069694578648
+        },
+        "211": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032878533005714
+        },
+        "217": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032098084688187
+        },
+        "223": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.031467579305172
+        },
+        "229": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030434276908636
+        },
+        "235": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030035205185413
+        },
+        "241": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030126474797726
+        }
+      },
+      "sampled_surface_intersections": 0,
+      "bezier_curves": true,
+      "cycles_modifiers": true
+    },
+    "Explain_Gentle": {
+      "duration_seconds": 10.0,
+      "playback_frames": [
+        1,
+        300
+      ],
+      "closure_frame": 301,
+      "fixed_bones_max_translation_mm": 0,
+      "fixed_bones_max_matrix_error": 0,
+      "max_half_frame_rotation_degrees": 1.1439646912605859,
+      "endpoint_pose_error": 0.0,
+      "curve_endpoint_error": 0,
+      "curve_seam_derivative_error": 0,
+      "surfaces": {
+        "1": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030126474797726
+        },
+        "7": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030201446264982
+        },
+        "13": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030329503118992
+        },
+        "19": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030632648617029
+        },
+        "25": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.031602621078491
+        },
+        "30": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.032073404639959
+        },
+        "31": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.392247974872589
+        },
+        "32": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 7.425803691148758
+        },
+        "33": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 9.124279953539371
+        },
+        "34": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 11.117744259536266
+        },
+        "35": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 12.174660339951515
+        },
+        "36": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 13.785861432552338
+        },
+        "37": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 15.957336872816086
+        },
+        "38": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 18.512742593884468
+        },
+        "39": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 21.381720900535583
+        },
+        "40": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 24.386560544371605
+        },
+        "41": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 27.34505385160446
+        },
+        "42": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 30.30342608690262
+        },
+        "43": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 33.04630517959595
+        },
+        "44": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 35.93021258711815
+        },
+        "45": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 39.13487121462822
+        },
+        "46": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 42.68204793334007
+        },
+        "47": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 46.607472002506256
+        },
+        "48": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 50.569623708724976
+        },
+        "49": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 54.79933321475983
+        },
+        "50": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 59.35218557715416
+        },
+        "51": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 64.19038027524948
+        },
+        "52": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 69.24983114004135
+        },
+        "53": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 74.5449960231781
+        },
+        "54": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 78.84887605905533
+        },
+        "55": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 82.46707916259766
+        },
+        "61": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 109.09442603588104
+        },
+        "67": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 137.21075654029846
+        },
+        "73": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 161.68752312660217
+        },
+        "75": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 167.21037030220032
+        },
+        "79": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 177.34062671661377
+        },
+        "85": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 193.20867955684662
+        },
+        "91": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 208.5149735212326
+        },
+        "97": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 221.9114601612091
+        },
+        "103": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 232.16576874256134
+        },
+        "108": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 237.43896186351776
+        },
+        "109": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 238.0359023809433
+        },
+        "115": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 238.1841093301773
+        },
+        "121": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 234.36307907104492
+        },
+        "127": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 229.23347353935242
+        },
+        "133": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 225.45883059501648
+        },
+        "135": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 224.96111690998077
+        },
+        "139": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 224.4628220796585
+        },
+        "145": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 223.7224280834198
+        },
+        "151": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 223.10024499893188
+        },
+        "157": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 222.7218896150589
+        },
+        "163": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 222.7134257555008
+        },
+        "169": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 223.20370376110077
+        },
+        "175": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 224.32905435562134
+        },
+        "180": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 225.85822641849518
+        },
+        "181": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 226.3099104166031
+        },
+        "187": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 232.10802674293518
+        },
+        "193": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 241.58592522144318
+        },
+        "199": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 252.27075815200806
+        },
+        "205": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 261.2975835800171
+        },
+        "210": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 265.28483629226685
+        },
+        "211": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 265.4770314693451
+        },
+        "217": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 260.92830300331116
+        },
+        "223": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 247.73307144641876
+        },
+        "225": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 241.7130023241043
+        },
+        "229": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 225.10173916816711
+        },
+        "235": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 188.5700672864914
+        },
+        "241": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 147.20267057418823
+        },
+        "247": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 109.66236144304276
+        },
+        "250": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 96.09496593475342
+        },
+        "251": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 92.01595932245255
+        },
+        "252": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 88.03070336580276
+        },
+        "253": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 83.67931842803955
+        },
+        "254": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 77.1583840250969
+        },
+        "255": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 70.4302191734314
+        },
+        "256": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 63.759684562683105
+        },
+        "257": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 57.191140949726105
+        },
+        "258": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 50.842877477407455
+        },
+        "259": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 45.10511830449104
+        },
+        "260": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 39.68774899840355
+        },
+        "261": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 34.62766855955124
+        },
+        "262": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 30.27757629752159
+        },
+        "263": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 26.192232966423035
+        },
+        "264": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 22.79297634959221
+        },
+        "265": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 20.50013840198517
+        },
+        "266": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 19.22549493610859
+        },
+        "267": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 18.466567620635033
+        },
+        "268": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 17.97521859407425
+        },
+        "269": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 16.915850341320038
+        },
+        "270": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 15.617855824530125
+        },
+        "271": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 14.245199039578438
+        },
+        "272": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 12.88821641355753
+        },
+        "273": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 11.789265088737011
+        },
+        "274": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 9.813105687499046
+        },
+        "275": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 8.20884108543396
+        },
+        "276": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.840099114924669
+        },
+        "277": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.031602621078491
+        },
+        "278": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 5.683014634996653
+        },
+        "283": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 4.904669709503651
+        },
+        "289": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 5.029704887419939
+        },
+        "295": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 5.654953420162201
+        },
+        "301": {
+          "left_right": 0,
+          "left_trunk": 0,
+          "right_trunk": 0,
+          "minimum_hand_surface_distance_mm": 6.030126474797726
+        }
+      },
+      "sampled_surface_intersections": 0,
+      "bezier_curves": true,
+      "cycles_modifiers": true
+    }
+  },
+  "common_start_pose_max_error": 0.0,
+  "surface_check": "Triangle-edge intersection on evaluated hand and trunk surfaces; garment seams excluded by vertex weights.",
+  "review_floor_height_m": 0.007494799792766571,
+  "shoe_surface_min_z_m": {
+    "left": 0.007494872901588678,
+    "right": 0.0074949851259589195
+  },
+  "shoe_floor_gap_mm": {
+    "left": 7.310882210731506e-05,
+    "right": 0.00018533319234848022
+  },
+  "packed_texture_count": 26,
+  "preserved_original_actions": [
+    "T-Pose"
+  ],
+  "runtime_integration": "Not changed; pending user review"
+}
