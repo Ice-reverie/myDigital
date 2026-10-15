@@ -1,0 +1,3 @@
+# Native orchestration + real provider tools support; no LangGraph dependency.
+httpx>=0.27,<1
+pydantic>=2.7,<3

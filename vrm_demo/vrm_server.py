@@ -575,5 +575,20 @@ async def chat(req: ChatRequest):
     return {**result, **speech}
 
 
+# BEGIN MYDIGITAL AGENT UPGRADE v1
+try:
+    from .agent.api import mount_agent
+except ImportError:
+    from agent.api import mount_agent
+
+mount_agent(
+    app,
+    gateway=database_gateway,
+    voice_resolver=lambda avatar_id, gender: tts_gateway.voice_gender(avatar_id or DEFAULT_AVATAR, gender),
+    sentence_splitter=split_sentence,
+)
+# END MYDIGITAL AGENT UPGRADE v1
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8890)

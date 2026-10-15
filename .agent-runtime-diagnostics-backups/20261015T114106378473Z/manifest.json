@@ -1,0 +1,30 @@
+{
+  "version": "1.1.0",
+  "files": [
+    {
+      "path": "vrm_demo/agent/llm.py",
+      "before_sha256": "1591aeee78705870e9e59cc38bf66c805606c2300795fc62ef48b95ba2e7071f",
+      "after_sha256": "9b45f23f2bbee9a2cf44ca76f8f012bed815426a4e1a48457a25a3e109e7963f"
+    },
+    {
+      "path": "vrm_demo/agent/graph.py",
+      "before_sha256": "26e7c4dc1f821f88352f6b1320e40275446663708e1af6de214beba0d55c0f01",
+      "after_sha256": "eae8a90fe998a108441083ecafb6d7f8dee291db212a735a69197d05aa4024f2"
+    },
+    {
+      "path": "vrm_demo/agent/service.py",
+      "before_sha256": "4387bcc775448376f4de2c9ddda082fb3c089203d482848434764f34d57068d2",
+      "after_sha256": "b365c2e3f16fcbfd2846786adabd6db27e605a98dedd45893599e1720aa1bde5"
+    },
+    {
+      "path": "vrm_demo/static/js/agent-client.js",
+      "before_sha256": "8a6aed5913c714f15805cb59762826623fda431b5c78c2c841d04d70475cd28c",
+      "after_sha256": "5ad68a72d87570ab353563cfe30b682ec8b0e746a273f264fea837774762c062"
+    },
+    {
+      "path": "diagnose_agent_gateway.py",
+      "before_sha256": "577476499ee18dcc0abde4ce9a0371873550c017b7f0999bee868a4c12359e46",
+      "after_sha256": "eff1996c3e7bfa97bbba1773e38ec99f4a7a3b5b366c3e29b64f528065768967"
+    }
+  ]
+}

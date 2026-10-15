@@ -1,3 +1,6 @@
+// BEGIN MYDIGITAL AGENT UPGRADE v1
+import { agentChatTransport, agentFailureHint, installAgentControls } from './agent-client.js';
+// END MYDIGITAL AGENT UPGRADE v1
 // The conversation starts even when the optional 3D bundle cannot load.
 let THREE = globalThis.THREE || null;
 let GLTFLoader, OrbitControls, RoomEnvironment, VRMLoaderPlugin, VRMUtils;
@@ -698,12 +701,10 @@ async function sendMessage(providedText = '', startNewService = false, retry = f
   const chatController = new AbortController();
   const chatTimer = setTimeout(() => chatController.abort(), 25000);
   try {
-    const response = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: chatController.signal,
-      body: JSON.stringify({ text, ...voice, context: startNewService ? {} : conversationContext, include_audio: false }),
-    });
+    const response = await agentChatTransport(
+      { text, ...voice, context: startNewService ? {} : conversationContext, include_audio: false },
+      { signal: chatController.signal, retry, startNewService },
+    );
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
@@ -731,7 +732,7 @@ async function sendMessage(providedText = '', startNewService = false, retry = f
     console.error('请求失败：', error);
     addMessage('抱歉，服务暂时没有响应。请确认后端已经启动，再试一次。', false);
     renderRetry(text, startNewService);
-    setInteractionStatus('服务连接失败，文字内容未提交。', 'warning');
+    setInteractionStatus(agentFailureHint(), 'warning');
   } finally {
     clearTimeout(chatTimer);
     if (requestId === chatRequestId) enableConversation();
@@ -1987,3 +1988,31 @@ function updateBlink(now) {
     blinkStart = now;
   }
 }
+
+// Agent restores only authenticated server state, never client-supplied business context.
+installAgentControls({
+  onRestore(data) {
+    const item = data.pending?.selection;
+    if (!item) {
+      if (data.last_response?.reply) {
+        addMessage('已恢复会话。' + data.last_response.reply, false);
+        renderQuickReplies(data.last_response.quick_replies || []);
+      }
+      return;
+    }
+    const unknown = data.pending.status === 'committing';
+    addMessage(unknown
+      ? '这条模拟预约的提交结果待核实，请再次确认以核实同一预约，不会重复新建。'
+      : `已恢复待确认模拟预约：${item.department}，${item.service_date} ${item.slot_name}。尚未提交，请确认或取消。`, false);
+    renderQuickReplies(unknown ? ['确认模拟预约'] : ['确认模拟预约', '取消本次操作']);
+  },
+  onRetryAvailable(text) {
+    renderRetry(text, false);
+    setInteractionStatus('上次请求结果待核实，请重试同一请求。', 'warning');
+  },
+  onReset() {
+    conversationContext = {};
+    renderQuickReplies([]);
+    addMessage('已新建 Agent 会话。历史模拟预约不会因此删除。', false);
+  },
+});

@@ -1,0 +1,4 @@
+-r requirements-agent-core.txt
+# Optional real LangGraph routing + SQLite approval checkpoints.
+langgraph>=1.0,<2
+langgraph-checkpoint-sqlite>=3.0,<4
