@@ -1,0 +1,51 @@
+{
+  "version": "conversation-1.0.0",
+  "project": "D:\\myDigital",
+  "files": [
+    {
+      "path": "vrm_demo/agent/service.py",
+      "before": "f560637af86d989fdcf5a0bb2d601109ddcf8dfd525510f92b8d0df8ff5bc734",
+      "after": "647f7ee740b3c9225542c94237bcd66026f946abd9ac462cfc4c30ce1a4ee1c0"
+    },
+    {
+      "path": "vrm_demo/static/js/agent-client.js",
+      "before": "df323bed57b6df80763fe82de35f363e0629aa22848b15a1e3c8a552683b13d6",
+      "after": "d18156b871b6e04bd651bc1eee12007e38034bb988bcdf15eeab66b821cfb0e4"
+    },
+    {
+      "path": "vrm_demo/agent/conversation_policy.py",
+      "before": null,
+      "after": "e522338e4de0cc0c451d3df0cf3cacaef91c6b9f0885accbb6a37f242bafa22e"
+    },
+    {
+      "path": "vrm_demo/agent/conversation_text.py",
+      "before": null,
+      "after": "8e168f3605940168489a95b89f3aa86ab055b841ce6ba2607c7cbd72ad5a50d5"
+    },
+    {
+      "path": "vrm_demo/agent/conversation.py",
+      "before": null,
+      "after": "d7e8f1bfc4511be0b5fe302b8c2fb50a4e8e25570e6c7db7e4575a7b27a6e632"
+    },
+    {
+      "path": "knowledge/agent/conversation-guide.md",
+      "before": null,
+      "after": "a7ac01f8a3e08c98dd5cff184b1eee9ca3e7521d82c3fcb6d7e38345c46a877b"
+    },
+    {
+      "path": "tests/test_agent_conversation.py",
+      "before": null,
+      "after": "a20227d85cba3a49ba60e7a50b418848eee7fb95ed7c8a11876e77d9caaf39f1"
+    },
+    {
+      "path": "tests/test_agent_conversation_frontend.mjs",
+      "before": null,
+      "after": "c00bafcb5ed8694a025d7acbf758e70acc675473a497dd6009257e35e4361129"
+    },
+    {
+      "path": "docs/agent-conversation.md",
+      "before": null,
+      "after": "f5226f7e7f7e2f7f1195dc96a80acf25067f1bb1f280c727913842f9d87fbea8"
+    }
+  ]
+}

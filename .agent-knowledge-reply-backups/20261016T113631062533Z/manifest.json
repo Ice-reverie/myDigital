@@ -1,0 +1,31 @@
+{
+  "version": "knowledge-compact-stream-v1",
+  "project": "D:\\myDigital",
+  "files": [
+    {
+      "path": "vrm_demo/agent/conversation.py",
+      "before": "d7e8f1bfc4511be0b5fe302b8c2fb50a4e8e25570e6c7db7e4575a7b27a6e632",
+      "after": "7f5423f38755e6498505a6428f8436c9570d22baa9542d7c07259b2a26ef4a7b"
+    },
+    {
+      "path": "vrm_demo/agent/service.py",
+      "before": "647f7ee740b3c9225542c94237bcd66026f946abd9ac462cfc4c30ce1a4ee1c0",
+      "after": "6901e6c81c83af8b7dfa1cd0be70931928c20f5c4f7ff14f8124b0aec2fb2bf3"
+    },
+    {
+      "path": "vrm_demo/static/js/agent-client.js",
+      "before": "d18156b871b6e04bd651bc1eee12007e38034bb988bcdf15eeab66b821cfb0e4",
+      "after": "1aad8c816c2be59e79c861ce86954d89498d71d5090e979ace3d869e6b87a86b"
+    },
+    {
+      "path": "vrm_demo/agent/knowledge_generation.py",
+      "before": null,
+      "after": "1168ef7d47cf49b055cb04f799cd476ec037d2414ef49f4126d6dfcd04f84cc5"
+    },
+    {
+      "path": "tests/test_agent_knowledge_generation.py",
+      "before": null,
+      "after": "d38c67f7604f714e84099729d2fb862e42cc6ecf3ac629f3b5795a0c242f3b0e"
+    }
+  ]
+}

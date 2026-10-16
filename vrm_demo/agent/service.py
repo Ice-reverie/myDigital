@@ -9,6 +9,9 @@ from .llm import LLMClient
 from .policy import medical_request, native_turn, selected_index
 from .store import Store, AgentError, digest, encode
 from .tools import Toolbox
+from .knowledge_generation import PROFILE as KNOWLEDGE_PROFILE, streaming_enabled
+from .conversation import run_conversation, remember_route, history_for
+from .conversation_policy import VERSION as CONVERSATION_VERSION, safety_request
 
 NOTICE = "仅操作虚构演示数据，不连接医院，不提供诊断，不发送通知。"
 
@@ -73,6 +76,11 @@ class AgentService:
                 "llm_protocol":"openai-compatible tool_calls", "database_enabled":self.db.enabled(),
                 "knowledge_chunks":len(self.knowledge.chunks),"notice":NOTICE,
                 "mode":"llm_tools" if self.client.configured else "rules_demo", "diagnostics_version":"1.1.0",
+                "conversation_version":CONVERSATION_VERSION,
+                "knowledge_generation_profile":KNOWLEDGE_PROFILE,
+                "knowledge_streaming":streaming_enabled(),
+                "conversation_routes":["chat","knowledge","business"],
+                "routing_policy":"guarded_rules_v1",
                 "timeout_profile":AGENT_TIMEOUT_PROFILE,
                 "timeouts":{"model_read_seconds":MODEL_READ_TIMEOUT_SECONDS,
                             "model_turn_budget_seconds":self.settings.model_budget,
@@ -160,6 +168,35 @@ class AgentService:
         state["history"]=(state.get("history",[])+[{"role":"user","content":text[:500]},
                            {"role":"assistant","content":reply[:1500]}])[-24:]
 
+    def business_turn(self,sid,request,state):
+        diagnostics = None
+        mode="llm_tools" if self.client.configured else "rules_demo"
+        toolbox=Toolbox(self.db,self.store,self.knowledge,sid,request.request_id,state)
+        if self.client.configured and selected_index(request.text) is None:
+            turn=run_model_turn(self.client,toolbox,request.text,history_for(state,"business"),
+                                self.settings.model_budget,self.settings.max_rounds,self.engine)
+            diagnostics = model_diagnostics(turn)
+            if not any(e.get("ok") for e in turn["evidence"]):
+                fallback=native_turn(toolbox,request.text)
+                fallback["trace"]=turn["trace"]+[dict(item,origin="rules") for item in fallback["trace"]]
+                turn=fallback
+                mode="rules_fallback"
+            elif turn["degraded"] or not turn["evidence"][-1].get("ok"):
+                mode="llm_partial"
+        else:
+            turn=native_turn(toolbox,request.text)
+            if self.client.configured:
+                mode="explicit_selection"
+        if toolbox.proposal is not None:
+            # Approval is started by chat() AFTER the outer conversation graph
+            # returns, preventing interrupt/checkpoint namespace inheritance.
+            response=self.proposal_response(sid,toolbox.proposal,turn["trace"],mode)
+        else:
+            response=self.from_evidence(sid,turn,mode)
+        if diagnostics is not None:
+            response["diagnostics"] = diagnostics
+        return response
+
     def chat(self,sid,secret,request):
         self.store.authenticate(sid,secret)
         fingerprint=digest(encode({"operation":"chat",**request.model_dump()}))
@@ -196,35 +233,26 @@ class AgentService:
                 state["preferences"],state["eligible_slots"]={},{}
             if pending:
                 # Merely saying 'confirm' to the chat API has no write authority.
+                mode="pending_confirmation"
                 response=self.proposal_response(sid,pending,mode=mode)
             elif request.text.strip() in {"取消本次操作","取消预约"}:
                 state["preferences"],state["eligible_slots"]={},{}
+                mode="local_control"
                 response=self.response(sid,"已停止本次未提交的操作。不会撤销已提交的模拟预约。",mode=mode)
-            elif medical_request(request.text):
+            elif safety_request(request.text):
                 response=self.response(sid,"这里是虚构医院服务演示，不判断病情、不提供诊断或用药建议。可以为您查询科室和演示号源。",
                                        quick=["查询科室"],mode="safety_boundary")
             else:
-                toolbox=Toolbox(self.db,self.store,self.knowledge,sid,request.request_id,state)
-                if self.client.configured and selected_index(request.text) is None:
-                    turn=run_model_turn(self.client,toolbox,request.text,state["history"],
-                                        self.settings.model_budget,self.settings.max_rounds,self.engine)
-                    diagnostics = model_diagnostics(turn)
-                    if not any(e.get("ok") for e in turn["evidence"]):
-                        fallback=native_turn(toolbox,request.text)
-                        fallback["trace"]=turn["trace"]+[dict(item,origin="rules") for item in fallback["trace"]]
-                        turn=fallback
-                        mode="rules_fallback"
-                    elif turn["degraded"] or not turn["evidence"][-1].get("ok"):
-                        mode="llm_partial"
-                else:
-                    turn=native_turn(toolbox,request.text)
-                    if self.client.configured:
-                        mode="explicit_selection"
-                if toolbox.proposal is not None:
-                    self.approval.start(toolbox.proposal)
-                    response=self.proposal_response(sid,toolbox.proposal,turn["trace"],mode)
-                else:
-                    response=self.from_evidence(sid,turn,mode)
+                response=run_conversation(self,sid,request,state,
+                                          lambda:self.business_turn(sid,request,state))
+                if response.get("requires_confirmation"):
+                    # Keep durable approval at the application boundary, not
+                    # inside a transient LangGraph conversation node.
+                    proposal=self.store.proposal(sid,response["pending"]["proposal_id"])
+                    self.approval.start(proposal)
+                diagnostics=response.get("diagnostics")
+                mode=response["mode"]
+            response.setdefault("route","boundary" if response.get("mode")=="safety_boundary" else "business")
             if diagnostics is not None:
                 response["diagnostics"] = diagnostics
                 # Only the allow-listed summary is logged. No response/proposal objects.
@@ -232,6 +260,7 @@ class AgentService:
             response["request_id"]=request.request_id
             response["elapsed_ms"]=round((time.monotonic()-start)*1000,2)
             self.add_history(state,request.text,response["reply"])
+            remember_route(state,request.text,response)
             self.store.complete(sid,request.request_id,fingerprint,response,state)
             return response
 
@@ -279,6 +308,8 @@ class AgentService:
             response=self.response(sid,reply,action="confirm",mode="confirmed_action")
             response["request_id"]=request.request_id
             response["operation_result"]=outcome
+            response["route"]="business"
+            remember_route(state,"确认模拟预约" if request.decision=="approve" else "取消本次操作",response)
             self.add_history(state,"确认模拟预约" if request.decision=="approve" else "取消本次操作",reply)
             self.store.complete(sid,request.request_id,fingerprint,response,state)
             return response

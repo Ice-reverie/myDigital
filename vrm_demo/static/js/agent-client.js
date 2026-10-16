@@ -1,3 +1,20 @@
+// CONVERSATION_ROUTING_V1: rendering is textContent-only, no model HTML/links.
+export function renderAgentSources(host, sources = [], doc = document) {
+  host.replaceChildren();
+  host.open = false; // New answers must not leave a long source panel expanded.
+  const valid = Array.isArray(sources) ? sources.filter(s => s && typeof s.source_id === 'string').slice(0, 3) : [];
+  host.hidden = !valid.length;
+  const summary = doc.createElement('summary');
+  summary.textContent = '查看本轮资料依据（' + valid.length + '）';
+  host.append(summary);
+  valid.forEach((source, index) => {
+    const item = doc.createElement('p');
+    item.textContent = `[${index + 1}] ${String(source.title || '').slice(0, 150)}\n${source.source_id.slice(0, 180)}`
+      + (typeof source.quote === 'string' ? '\n原文：' + source.quote.slice(0, 500) : '');
+    host.append(item);
+  });
+}
+
 // Transport adapter only: existing VRM rendering, text, TTS and motions remain.
 const SESSION_KEY = 'anxin.agent.session.v1';
 const ATTEMPT_KEY = 'anxin.agent.attempt.v1';
@@ -121,7 +138,7 @@ export function installAgentControls({onRestore = () => {}, onReset = () => {}, 
   const section = document.createElement('section');
   section.id = 'agent-controls';
   const heading = document.createElement('h3');
-  heading.textContent = 'Agent 工具执行演示';
+  heading.textContent = 'Agent 对话、资料与业务演示';
   const link = document.createElement('a');
   const url = new URL(window.location.href);
   if (isAgentMode()) url.searchParams.delete('agent'); else url.searchParams.set('agent', '1');
@@ -138,6 +155,11 @@ export function installAgentControls({onRestore = () => {}, onReset = () => {}, 
   modeBadge.setAttribute('role', 'status');
   const dock = document.querySelector('.interaction-dock');
   if (dock) dock.append(modeBadge);
+  const sourcePanel = document.createElement('details');
+  sourcePanel.id = 'agent-source-evidence';
+  sourcePanel.hidden = true;
+  sourcePanel.style.whiteSpace = 'pre-wrap';
+  (dock || section).append(sourcePanel);
   const reset = document.createElement('button');
   reset.type = 'button';
   reset.textContent = '新建 Agent 会话';
@@ -147,12 +169,23 @@ export function installAgentControls({onRestore = () => {}, onReset = () => {}, 
   });
   section.append(reset);
   transport().onState = data => {
+    data = data.last_response || data;
     if (!data.mode) return;
-    const modes = {rules_demo: '未调用大模型：本地规则演示', rules_fallback: '本轮未取得有效模型工具结果：已回退本地规则',
+    renderAgentSources(sourcePanel, data.sources || []);
+    const modes = {
+      pending_confirmation: '等待明确确认：未调用模型', local_control: '本地流程控制：未调用模型',
+      llm_chat: '普通聊天：大模型生成回复', chat_fallback: '普通聊天暂不可用：本地提示',
+      llm_knowledge: '服务咨询：资料检索＋模型回答', knowledge_extract: '服务咨询：本地原文摘录',
+      knowledge_fallback: '服务咨询：生成未完成，可展开查看原文', knowledge_no_evidence: '服务咨询：缺少资料依据',
+      capability_boundary: '当前未接入相应外部工具',
+      rules_demo: '未调用大模型：本地规则演示', rules_fallback: '本轮未取得有效模型工具结果：已回退本地规则',
       llm_tools: '大模型工具调用', llm_partial: '模型调用未全部完成：显示已有查询结果',
       explicit_selection: '用户明确选择', confirmed_action: '用户确认后的受控执行', safety_boundary: '安全边界响应', recovered_result: '恢复的任务处理结果'};
     // RUNTIME_DIAGNOSTICS_V1_1. Only safe enum/count/timing summaries are shown.
     const reasons = {
+      reply_rejected: '回复未通过输出检查', invalid_grounding: '引用或答案未通过校验',
+      no_evidence: '没有检索到足够依据', insufficient_evidence: '模型表示资料不足',
+      not_configured: '模型配置不可用', external_tool_missing: '没有对应的实时查询或发送工具',
       no_tool_call_before_evidence: '模型本轮未请求工具', database_unavailable: '业务数据库工具失败',
       invalid_arguments: '工具参数未通过校验', department_required: '科室名称或编号不匹配',
       date_out_of_range: '日期超出可查询范围', invalid_date: '日期无效',
@@ -173,13 +206,15 @@ export function installAgentControls({onRestore = () => {}, onReset = () => {}, 
     modeBadge.textContent = detail ? `${label}（${detail}）` : label;
     const tools = (data.trace || []).map(t => `${t.origin === 'rules' ? '规则/' : t.origin === 'llm' ? '模型/' : ''}${t.tool}:${t.ok ? '成功' : '失败'}${t.error ? '(' + t.error + ')' : ''}`).join(' → ');
     const sources = (data.sources || []).map(s => s.source_id).join('，');
-    status.textContent = `${label}；引擎 ${data.engine || '未知'}。${detail ? '\n本轮原因：' + detail : ''}${tools ? '\n工具轨迹：' + tools : ''}${sources ? '\n资料来源：' + sources : ''}${data.diagnostics ? '\n脱敏诊断：' + JSON.stringify(data.diagnostics) : ''}`;
+    const routeNames = {chat: '普通聊天', knowledge: '服务咨询', business: '业务办理', capability: '能力边界', boundary: '安全边界'};
+    const route = routeNames[data.route] || '业务办理';
+    status.textContent = `路径：${route}；${label}；引擎 ${data.engine || '未知'}。${detail ? '\n本轮原因：' + detail : ''}${tools ? '\n工具轨迹：' + tools : ''}${sources ? '\n资料来源：' + sources : ''}${data.diagnostics ? '\n脱敏诊断：' + JSON.stringify(data.diagnostics) : ''}`;
   };
   fetch('/api/agent/status', {cache: 'no-store'}).then(async response => {
     if (!response.ok) throw new Error('Agent状态读取失败，请检查后端及依赖。');
     const data = await response.json();
     status.textContent = `${data.engine}；${data.llm_configured ? '模型配置完整，尚不代表连通性已验证' : '没有模型配置，使用本地规则演示'}。仅使用虚构数据。`;
-    modeBadge.textContent = data.llm_configured ? 'Agent：模型工具调用已配置' : 'Agent：未调用大模型，本地规则演示';
+    modeBadge.textContent = data.llm_configured ? 'Agent：普通聊天 / 服务咨询 / 业务办理已启用' : 'Agent：未配置模型，保留规则与资料摘录';
   }).catch(error => { status.textContent = error.message; modeBadge.textContent = 'Agent 暂不可用，原规则模式可独立使用'; });
   transport().restore().then(data => {
     if (data?.pending || data?.last_response) onRestore(data);
