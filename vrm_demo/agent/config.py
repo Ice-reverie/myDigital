@@ -5,6 +5,12 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
 
+# AGENT_TIMEOUT_PROFILE_V1: local-demo finite waiting limits.
+AGENT_TIMEOUT_PROFILE = "gateway-30-60-v1"
+MODEL_READ_TIMEOUT_SECONDS = 30.0
+AGENT_BROWSER_TIMEOUT_MS = 100000
+SESSION_LEASE_SECONDS = 180
+
 def truth(name: str, default: str = "false") -> bool:
     return os.getenv(name, default).strip().lower() in {"1", "true", "yes", "on"}
 
@@ -15,7 +21,7 @@ class Settings:
     session_ttl: int = 86400
     approval_ttl: int = 600
     max_rounds: int = 4
-    model_budget: float = 18.0
+    model_budget: float = 60.0
     knowledge_path: Path = ROOT / "knowledge" / "agent"
 
     @classmethod

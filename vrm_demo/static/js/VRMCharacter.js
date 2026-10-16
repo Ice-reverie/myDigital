@@ -1,5 +1,5 @@
 // BEGIN MYDIGITAL AGENT UPGRADE v1
-import { agentChatTransport, agentFailureHint, installAgentControls } from './agent-client.js';
+import { agentChatTransport, agentFailureHint, installAgentControls, agentChatTimeoutMs } from './agent-client.js';
 // END MYDIGITAL AGENT UPGRADE v1
 // The conversation starts even when the optional 3D bundle cannot load.
 let THREE = globalThis.THREE || null;
@@ -699,7 +699,7 @@ async function sendMessage(providedText = '', startNewService = false, retry = f
   initAudioContext().catch((error) => console.warn('音频初始化失败，将尝试浏览器播报。', error));
 
   const chatController = new AbortController();
-  const chatTimer = setTimeout(() => chatController.abort(), 25000);
+  const chatTimer = setTimeout(() => chatController.abort(), agentChatTimeoutMs());
   try {
     const response = await agentChatTransport(
       { text, ...voice, context: startNewService ? {} : conversationContext, include_audio: false },

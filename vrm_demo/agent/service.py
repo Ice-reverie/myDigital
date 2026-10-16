@@ -1,7 +1,8 @@
 """Application boundary: authorization, confirmation, persistence and evidence."""
 import hmac
 import time
-from .config import Settings
+from .config import (Settings, AGENT_TIMEOUT_PROFILE, MODEL_READ_TIMEOUT_SECONDS,
+                     AGENT_BROWSER_TIMEOUT_MS, SESSION_LEASE_SECONDS)
 from .graph import ApprovalFlow, run_model_turn, select_engine
 from .knowledge import KnowledgeIndex
 from .llm import LLMClient
@@ -71,7 +72,12 @@ class AgentService:
         return {"enabled":True,"engine":self.engine,"llm_configured":self.client.configured,
                 "llm_protocol":"openai-compatible tool_calls", "database_enabled":self.db.enabled(),
                 "knowledge_chunks":len(self.knowledge.chunks),"notice":NOTICE,
-                "mode":"llm_tools" if self.client.configured else "rules_demo", "diagnostics_version":"1.1.0"}
+                "mode":"llm_tools" if self.client.configured else "rules_demo", "diagnostics_version":"1.1.0",
+                "timeout_profile":AGENT_TIMEOUT_PROFILE,
+                "timeouts":{"model_read_seconds":MODEL_READ_TIMEOUT_SECONDS,
+                            "model_turn_budget_seconds":self.settings.model_budget,
+                            "browser_agent_seconds":AGENT_BROWSER_TIMEOUT_MS / 1000,
+                            "session_lease_seconds":SESSION_LEASE_SECONDS}}
 
     def create_session(self):
         return self.store.create_session() | {"notice":NOTICE}

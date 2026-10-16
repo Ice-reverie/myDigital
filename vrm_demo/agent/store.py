@@ -12,6 +12,7 @@ import secrets
 import sqlite3
 import time
 import uuid
+from .config import SESSION_LEASE_SECONDS
 
 class AgentError(Exception):
     def __init__(self, code: str, message: str, status: int = 400):
@@ -91,7 +92,7 @@ class Store:
         owner = uuid.uuid4().hex
         with self.connect() as conn:
             changed = conn.execute("UPDATE agent_sessions SET lock_owner=?,lock_until=? WHERE id=? AND lock_until<?",
-                                   (owner, time.time()+120, sid, time.time())).rowcount
+                                   (owner, time.time()+SESSION_LEASE_SECONDS, sid, time.time())).rowcount
             if changed != 1:
                 raise AgentError("session_busy", "该会话正在处理另一条请求，请重试同一请求。", 409)
         try:

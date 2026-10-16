@@ -2,6 +2,9 @@
 const SESSION_KEY = 'anxin.agent.session.v1';
 const ATTEMPT_KEY = 'anxin.agent.attempt.v1';
 export const isAgentMode = () => typeof window !== 'undefined' && new URL(window.location.href).searchParams.get('agent') === '1';
+// AGENT_TIMEOUT_PROFILE_V1: only the Agent route gets the longer wait.
+export const agentChatTimeoutMs = () => isAgentMode() ? 100000 : 25000;
+
 
 export class AgentTransport {
   constructor({fetchImpl = globalThis.fetch.bind(globalThis), storage = null, uuid = () => crypto.randomUUID().replaceAll('-', '')} = {}) {

@@ -1,0 +1,36 @@
+{
+  "version": "gateway-30-60-v1",
+  "project": "D:\\myDigital",
+  "files": [
+    {
+      "path": "vrm_demo/agent/config.py",
+      "before": "26a281e943e7af67adaa2665d0e93da4725e3b22b497ff429bf857aaf1c962aa",
+      "after": "33f4a91d0c1d4066d6ed119d9683ae546030ffbb167b53218756755e5a3aad01"
+    },
+    {
+      "path": "vrm_demo/agent/llm.py",
+      "before": "9b45f23f2bbee9a2cf44ca76f8f012bed815426a4e1a48457a25a3e109e7963f",
+      "after": "66fd175fa144e830d534f11d9b787ab9b12d536239ca6cc1fdfb6682b24388ad"
+    },
+    {
+      "path": "vrm_demo/agent/service.py",
+      "before": "b365c2e3f16fcbfd2846786adabd6db27e605a98dedd45893599e1720aa1bde5",
+      "after": "f560637af86d989fdcf5a0bb2d601109ddcf8dfd525510f92b8d0df8ff5bc734"
+    },
+    {
+      "path": "vrm_demo/agent/store.py",
+      "before": "ece6ca80a5a2a1664e00223b8da69729d37f71117681f569fef7d949894ff6ba",
+      "after": "9d2d262d761bf93cdcdc847284e552332a83afee187d7e004d5f0385bd9ba5c3"
+    },
+    {
+      "path": "vrm_demo/static/js/agent-client.js",
+      "before": "5ad68a72d87570ab353563cfe30b682ec8b0e746a273f264fea837774762c062",
+      "after": "df323bed57b6df80763fe82de35f363e0629aa22848b15a1e3c8a552683b13d6"
+    },
+    {
+      "path": "vrm_demo/static/js/VRMCharacter.js",
+      "before": "f57745acdc4e65e69384818cc697d39e0a4d78f2092ba24e5f04f67997179b3a",
+      "after": "72da2d64529d2c3d98be8483ae8a7965ed49bfef27e2af1a4a7c58ae95b2f44b"
+    }
+  ]
+}
